@@ -191,12 +191,13 @@ func NewApiServer(httpPort int) *ApiServer {
 }
 
 func (server *ApiServer) StartApiServer() error {
+
+	log.Printf("\nApiServer started at http port %d\n", server.httpPort)
+
 	err := server.server.ListenAndServe()
 	if err != nil {
 		return fmt.Errorf("unable to start the server.\ncause: %v", err)
 	}
-
-	log.Printf("\nApiServer started at http port %d\n", server.httpPort)
 
 	return nil
 }
