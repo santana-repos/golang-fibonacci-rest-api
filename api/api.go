@@ -151,12 +151,12 @@ func NewFibApiImpl() *fibApiImpl {
 
 // healthResourcesHandler is a handler created to address health check ends
 func (api healthApiImpl) healthResourcesHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("\nEndpoint Hit: GET /health; Params (N): %v\n", r.URL.Query())
+	fmt.Printf("\nEndpoint Hit: GET /health_check; Params (N): %v\n", r.URL.Query())
 
 	switch r.Method {
 	case http.MethodGet:
 
-		fmt.Fprintf(w, "success")
+		fmt.Fprintf(w, "Health check")
 
 		log.Println()
 	default:
@@ -165,7 +165,7 @@ func (api healthApiImpl) healthResourcesHandler(w http.ResponseWriter, r *http.R
 }
 
 func NewHealthApiImpl() *healthApiImpl {
-	return &healthApiImpl{resource: "/health"}
+	return &healthApiImpl{resource: "/health_check"}
 }
 
 func NewApiServer(httpPort int) *ApiServer {
