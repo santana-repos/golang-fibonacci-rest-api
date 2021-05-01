@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-fib-deployment
+  name: go-fib
+  namespace: test
 spec:
   selector:
     matchLabels:
@@ -13,21 +14,21 @@ spec:
         app: go-fib
     spec:
       containers:
-        - name: go-fib
-          image: thiagodevel/go-fib:0.0.1
-          ports:
-            - containerPort: 8000 
-            
+      - name: go-fib
+        image: thiagodevel/go-fib:0.0.1
+        ports:
+        - containerPort: 8000
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: go-fib-service
-spec:
-  selector:
+  name: go-fib
+  namespace: test
+  labels:
     app: go-fib
-  type: LoadBalancer 
+spec:
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
-      nodePort: 31000            
+  - port: 8000
+  selector:
+    app: go-fib      
