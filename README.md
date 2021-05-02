@@ -47,7 +47,7 @@ The server will be running on [http://localhost:8000](http://localhost:8000) it 
 
 ## Container Desploy to Kubernetes
 
-```` kubectl apply -f fib.yaml ```
+``` kubectl apply -f fib.yaml ```
 
 
 ### Testing the service On Kubernetes
