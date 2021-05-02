@@ -52,8 +52,8 @@ The server will be running on [http://localhost:8000](http://localhost:8000) it 
 
 ### Testing the service On Kubernetes
 
-```` kubectl get service ```
+``` kubectl get service ```
 
 ### Testing the Kubernetes Service on localserver (using ***minikube***)
 
-```` minikube service go-fib-service --url ```
+``` minikube service go-fib-service --url ```
