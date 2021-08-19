@@ -45,7 +45,7 @@ The server will be running on [http://localhost:8000](http://localhost:8000) it 
 
 ```docker push thiagodevel/go-fib:0.0.1```
 
-## Container Desploy to Kubernetes
+## Container Deploy to Kubernetes
 
 ``` kubectl apply -f fib.yaml ```
 
